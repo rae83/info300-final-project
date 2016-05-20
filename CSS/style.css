@@ -1,0 +1,138 @@
+
+body {
+	width: 80%;
+	margin: 0 auto;
+	/*border: 1px solid black;*/
+}
+body div {
+	/*border: 1px solid black;*/
+}
+
+#title {
+	margin-top: 2%;
+}
+
+.emphasized {
+	font-weight: bolder;
+	color: green;
+}
+
+#paragraph {
+	margin-top: 2%;
+	padding-left: 10px;
+}
+
+.spacer {
+	margin: 0 auto;
+	border: 1px solid lightgray;
+	width: 50%;
+}
+
+#globe, #menu {
+	text-align: center;
+	margin: auto;
+}
+
+#globe {
+	/*float: left;
+	width: 50%;*/
+}
+
+#right-side {
+	min-width: 360px;
+	margin-top: 40px;
+}
+
+#menu {
+	/*float: left; 
+	width: 50%;*/
+}
+
+#outputs {
+	min-width: 360px;
+}
+
+/**/
+/* Style for the map */
+/**/
+
+svg {
+	/*border: 1px solid gray;*/
+}
+
+.land {
+ 	/*fill: rgb(117, 87, 57);*/
+  	stroke-opacity: 1;
+}
+
+.countries path {
+  	stroke: rgb(80, 64, 39);  
+  	stroke-linejoin: round;
+  	stroke-width: 1;
+  	/*fill: rgb(117, 87, 57);*/
+  	opacity: 0.1;
+}
+
+.graticule {
+  	fill: none;
+  	stroke: black;
+  	stroke-width: 0.5;
+  	opacity: 0.2;
+}
+
+.labels {
+    font: 8px sans-serif;
+    fill: black;
+    opacity: .5;
+}
+
+.noclicks {
+  	pointer-events:none;
+}
+
+.point{
+  	opacity:.6;
+}
+
+/**/
+/*styling for college plot*/
+/**/
+
+#college-text {margin-top: 30px;}
+
+.chart {margin-top: 0px;}
+
+.chart .legend {
+  fill: steelblue;
+  font: 14px sans-serif;
+  text-anchor: start;
+  font-size: 12px;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+.chart .label {
+  fill: white;
+  font: 14px sans-serif;
+  text-anchor: end;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/**/
+/*Footer styling*/
+/**/
+
+#footer {
+	font-size: 0.8em;
+	float: bottom;
+}
