@@ -235,6 +235,15 @@
 		        .data(topojson.object(world, world.objects.countries).geometries)
 		      	.enter().append("path")
 		        .attr("d", path)
+		        .on("touchstart", function (d) {
+		        	var value = dict[d.id];
+		        	if (value == undefined) { value = 0;}
+		        	console.log(nameDict[d.id] + ", " + value);
+		        	document.getElementById("country_selected").innerHTML = nameDict[d.id];
+		        	document.getElementById("number_billionaires").innerHTML = value;
+		        	d3.select("#country_selected").attr("innerHTML", nameDict[d.id]);
+		        	d3.select("#number_billionaires").attr("innerHTML", value);
+		        	return d.id;})
 		        .on("click", function (d) {
 		        	var value = dict[d.id];
 		        	if (value == undefined) { value = 0;}
