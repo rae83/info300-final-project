@@ -11,14 +11,14 @@
 
 <body>
 	<!-- intro and globe -->
-	<div class="row">
-		<div class="six columns" id="title">
+	<!-- <div class="row"> -->
+		<div class="" id="title">
 			<h1> So you want to be a <span class="emphasized">billionaire?</span></h1>
 		</div>
-		<div class ="six columns" id="paragraph">
+		<div class ="" id="paragraph">
 			<p>In 2014, there were <span class="emphasized">1,645 billionaires</span> in the world.  Together, these individuals represent a net worth of more than $6.4 trillion.  Rotate the globe below to see where billionaires live around the world.  You can filter the data by industry and click the map to see the country selected and the number of billionaires from the country in question.</p>
 		</div>
-	</div>
+	<!-- </div> -->
 
 	<div class="spacer"></div>
 
@@ -80,7 +80,8 @@
 		var svg = d3.select("#globe").append("svg")
 		    .attr("width", width)
 		    .attr("height", height)
-		    .on("mousedown", mousedown);
+		    .on("mousedown", mousedown)
+		    .on("touchstart", mousedown);
 
 		queue()
 		    .defer(d3.json, "data/world-110m.json")
