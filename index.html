@@ -61,7 +61,9 @@
 	function makeGlobe() {
 		d3.select(window)
 		    .on("mousemove", mousemove)
-		    .on("mouseup", mouseup);
+		    .on("touchmove", mousemove)
+		    .on("mouseup", mouseup)
+		    .on("touchend", mouseup);
 
 		var width = 360,
 		    height = 450,
