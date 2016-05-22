@@ -620,18 +620,18 @@ function makePlots() {
 	    .attr("y", 50)
 	    .attr("class","title1");
 
-	    svg.append("circle")
-	    .attr("class","legend1")
-	    .attr("cx", width-250)
-	    .attr("cy", 75)
-	    .attr("r",4)
-	    .style("fill","#CCFF99");
+	    // svg.append("circle")
+	    // .attr("class","legend1")
+	    // .attr("cx", width-250)
+	    // .attr("cy", 75)
+	    // .attr("r",4)
+	    // .style("fill","#CCFF99");
 
-	    svg.append("text")
-	    .attr("x", width-240)
-	    .attr("y", 80)
-	    .attr("class","legend1")
-	    .text("top 5 billionaires in industry");
+	    // svg.append("text")
+	    // .attr("x", width-240)
+	    // .attr("y", 80)
+	    // .attr("class","legend1")
+	    // .text("top 5 billionaires in industry");
 
 	    svg.append("circle")
 	    .attr("cx", width-250)
@@ -644,7 +644,7 @@ function makePlots() {
 	    .attr("x", width-240)
 	    .attr("y", 95)
 	    .attr("class","legend1")
-	    .text("other billionaire in indstry");
+	    .text("billionaire in industry");
 
   		// var Ytext = ["Automotive","Business","Construction & Engineering","Diversified","Energy","Fashion and Retail","Finance","Food and Beverage","Gaming","Health care","Investments","Logistics","Manufacturing","Media","Medicine","Metals & Mining","Oil","Politics","Real Estate","Retail","Service","Sports","Technology","Telecom"];
 
@@ -701,7 +701,7 @@ function makePlots() {
 		    .attr("cx",function(d,i){ 
 		        //console.log(d.picture == "");
 		        if(d.picture != "") return -10;
-		        else return xScale(d.source) + 30 + d3.round(Math.random()*40);;
+		        else return xScale(d.source) + 30 + d3.round(Math.random()*30);;
 		    })
 		    .attr("cy",function(d,i){ 
 		      	if(d.picture != "") return -10;
@@ -710,8 +710,8 @@ function makePlots() {
 		    .attr("r",4)
 		    .attr("class","cir")
 		    .style("fill",function(d,i){ 
-		      	if(i <=10 ) return "#66DD00";
-		      	else return "blacky";
+		      	if(i <=10 ) return "black";
+		      	else return "black";
 		    })
 		    .on('click', tip.show)
 		    .on('mouseout', tip.hide);
@@ -723,7 +723,7 @@ function makePlots() {
 		    .attr("xlink:href",function(d){
 		      console.log(d.picture);
 		      return d.picture;
-		    }).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*40);})
+		    }).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*30);})
 		    .attr("y",function(d,i){ return yScale(d.net_worth);})
 		    .attr("class","imgman")
 		    .on('click', tip.show)
@@ -982,7 +982,7 @@ function makePlots() {
 		  	.attr("cx",function(d,i){ 
 		        //console.log(d.picture == "");
 		        if(d.picture != "") return -10;
-		        else return xScale(d.source) + 30 + d3.round(Math.random()*40);;
+		        else return xScale(d.source) + 30 + d3.round(Math.random()*30);;
 		    })
 		  	.attr("cy",function(d,i){ 
 		    	if(d.picture != "") return -10;
@@ -991,7 +991,7 @@ function makePlots() {
 		  	.attr("r",10)
 		  	.attr("class","cir")
 		  	.style("fill",function(d,i){ 
-		    	if(i <=5 ) return "#66DD00";
+		    	if(i <=5 ) return "#black";
 		    	else return "black";
 		  	})
 		  	.on('click', tip.show)
@@ -999,9 +999,9 @@ function makePlots() {
 
 		  	svg.selectAll(".imgman").data(newdata).enter().append("svg:image")
 		  	.attr("xlink:href",function(d){
-		    	console.log(d.picture);
+		    	// console.log(d.picture);
 		    	return d.picture;
-		  	}).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*40);})
+		  	}).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*30);})
 		  	.attr("y",function(d,i){ return yScale(d.net_worth);})
 		  	.attr("class","imgman")
 		  	.on('click', tip.show)
