@@ -479,15 +479,26 @@
 		// modified from http://bl.ocks.org/1392560
 		var m0, o0;
 		function mousedown() {
+			// console.log("mousedown ran");
+			var touch = event.targetTouches[0];
 		 	m0 = [d3.event.pageX, d3.event.pageY];
+		 	if (m0[0] == undefined) {
+		 		m0 = [touch.pageX, touch.pageY];
+		 	}
 		 	o0 = proj.rotate();
 		 	d3.event.preventDefault();
 		}
 
 		function mousemove() {
+			// console.log("mousemove ran");
+			var touch = event.targetTouches[0];
 		  	if (m0) {
-		    	var m1 = [d3.event.pageX, d3.event.pageY]
-		    	, o1 = [o0[0] + (m1[0] - m0[0]) / 6, o0[1] + (m0[1] - m1[1]) / 6];
+		    	var m1 = [d3.event.pageX, d3.event.pageY];
+		    	if (m1[0] == undefined) {
+		    		m1 = [touch.pageX, touch.pageY];
+		    		// console.log(m1[0], m1[1]);
+		    	}
+		    	var o1 = [o0[0] + (m1[0] - m0[0]) / 6, o0[1] + (m0[1] - m1[1]) / 6];
 		    	o1[1] = o1[1] > 30  ? 30  :
 		            o1[1] < -30 ? -30 :
 		            o1[1];
