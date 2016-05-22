@@ -122,7 +122,7 @@
 			<div class="five columns" id = "filter2">
 		  		<h5>Filter by country and / or age</h5>
 		  		<select id = "country" >
-				    <option value ="all country">All country</option>
+				    <option value ="all country">All countries</option>
 				    <option value ="AGO">Angola</option>
 				    <option value ="ARE">United Arab Emirates</option>
 				    <option value="ARG">Argentina</option>
@@ -196,7 +196,7 @@
 		  		</select>
 
 			  	<select id= "age" >
-				    <option value ="all age">All age</option>
+				    <option value ="all age">All ages</option>
 				    <option value = "20">under 20</option>
 				    <option value ="30">21-30</option>
 				    <option value="40">31-40</option>
@@ -208,8 +208,8 @@
 		</div>
 
 		<div class="row">
-			<div class="six columns" id ="chart2"></div>
-			<div class="six columns" id="chart2_2"></div>
+			<div class="seven columns" id ="chart2"></div>
+			<div class="five columns" id="chart2_2"></div>
 		</div>
 	<!-- end center visualizations -->
 
@@ -535,7 +535,7 @@ function makePlots() {
 	var people;
 	var height = 700;
 	var width;
-	if (window.innerWidth < 800) {
+	if (window.innerWidth < 615) {
 		width = window.innerWidth - 100;
 	}else{
 		width = window.innerWidth / 2;
@@ -623,26 +623,26 @@ function makePlots() {
 	    svg.append("circle")
 	    .attr("class","legend1")
 	    .attr("cx", width-250)
-	    .attr("cy", 100)
+	    .attr("cy", 75)
 	    .attr("r",4)
 	    .style("fill","#CCFF99");
 
 	    svg.append("text")
 	    .attr("x", width-240)
-	    .attr("y", 105)
+	    .attr("y", 80)
 	    .attr("class","legend1")
 	    .text("top 5 billionaires in industry");
 
 	    svg.append("circle")
 	    .attr("cx", width-250)
-	    .attr("cy", 115)
+	    .attr("cy", 90)
 	    .attr("r",4)
 	    .attr("class","legend1")
 	    .style("fill","black");
 
 	    svg.append("text")
 	    .attr("x", width-240)
-	    .attr("y", 120)
+	    .attr("y", 95)
 	    .attr("class","legend1")
 	    .text("other billionaire in indstry");
 
@@ -701,7 +701,7 @@ function makePlots() {
 		    .attr("cx",function(d,i){ 
 		        //console.log(d.picture == "");
 		        if(d.picture != "") return -10;
-		        else return xScale(d.source) + 30 + d3.round(Math.random()*80);;
+		        else return xScale(d.source) + 30 + d3.round(Math.random()*40);;
 		    })
 		    .attr("cy",function(d,i){ 
 		      	if(d.picture != "") return -10;
@@ -723,7 +723,7 @@ function makePlots() {
 		    .attr("xlink:href",function(d){
 		      console.log(d.picture);
 		      return d.picture;
-		    }).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*80);})
+		    }).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*40);})
 		    .attr("y",function(d,i){ return yScale(d.net_worth);})
 		    .attr("class","imgman")
 		    .on('click', tip.show)
@@ -853,8 +853,9 @@ function makePlots() {
 		    .attr("class", "tile")
 		    .attr("x", function(d) { return xScale_2(d.bucket); })
 		    .attr("y", function(d) { return yScale_2(d.date);   })
-		    .attr("width", 160)
+		    .attr("width", 80)
 		    .attr("height",  100)
+		    .style("stroke", "white")
 		    .style("fill", function(d) { return z(d.count); })
 		    .on('click', tip2.show)
 		    .on('mouseout', tip2.hide);
@@ -877,12 +878,12 @@ function makePlots() {
 	      	.attr("dy", ".35em")
 	      	.text(String);
 
-	      	svg.append("text")
-	      	.attr("class", "label")
-	      	.attr("x", width + 20)
-	      	.attr("y", 10)
-	      	.attr("dy", ".35em")
-	      	.text("Count");
+	      	// svg.append("text")
+	      	// .attr("class", "label")
+	      	// .attr("x", width + 20)
+	      	// .attr("y", 10)
+	      	// .attr("dy", ".35em")
+	      	// .text("Count");
 
 
 		    // -------  end draw the x y axis for the heat plot --------///
@@ -981,7 +982,7 @@ function makePlots() {
 		  	.attr("cx",function(d,i){ 
 		        //console.log(d.picture == "");
 		        if(d.picture != "") return -10;
-		        else return xScale(d.source) + 30 + d3.round(Math.random()*80);;
+		        else return xScale(d.source) + 30 + d3.round(Math.random()*40);;
 		    })
 		  	.attr("cy",function(d,i){ 
 		    	if(d.picture != "") return -10;
@@ -996,11 +997,11 @@ function makePlots() {
 		  	.on('click', tip.show)
 		  	.on('mouseout', tip.hide);
 
-		  	svg.selectAll(".imgman").data(pickedpeople).enter().append("svg:image")
+		  	svg.selectAll(".imgman").data(newdata).enter().append("svg:image")
 		  	.attr("xlink:href",function(d){
 		    	console.log(d.picture);
 		    	return d.picture;
-		  	}).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*80);})
+		  	}).attr("x",function(d,i){ return xScale(d.source) + 30 + d3.round(Math.random()*40);})
 		  	.attr("y",function(d,i){ return yScale(d.net_worth);})
 		  	.attr("class","imgman")
 		  	.on('click', tip.show)
@@ -1088,9 +1089,10 @@ function makePlots() {
 		    .enter().append("rect")
 		    .attr("class", "tile")
 		    .attr("x", function(d) { return xScale_2(d.bucket) - 10; })
-		    .attr("y", function(d) { return yScale_2(d.date) - 10;   })
-		    .attr("width", 160)
+		    .attr("y", function(d) { return yScale_2(d.date); })
+		    .attr("width", 80)
 		    .attr("height",  50)
+		    .style("stroke", "white")
 		    .style("fill", function(d) { return z(d.count); })
 		    .on('click', tip2.show)
 		    .on('mouseout', tip2.hide);
@@ -1113,12 +1115,12 @@ function makePlots() {
 		    .attr("dy", ".35em")
 		    .text(String);
 
-		    svg_2.append("text")
-		    .attr("class", "label")
-		    .attr("x", width + 20)
-		    .attr("y", 10)
-		    .attr("dy", ".35em")
-		    .text("Count");
+		    // svg_2.append("text")
+		    // .attr("class", "label")
+		    // .attr("x", width + 20)
+		    // .attr("y", 10)
+		    // .attr("dy", ".35em")
+		    // .text("Count");
 	  	} //--- end refresh data for the heatmap -- //
 	});
 }
@@ -1251,16 +1253,16 @@ function makePlots() {
 		        return 'translate(' + horz + ',' + vert + ')';
 		    });
 
-		legend.append('rect')
-		    .attr('width', legendRectSize)
-		    .attr('height', legendRectSize)
-		    .style('fill', function (d, i) { return color(i); })
-		    .style('stroke', function (d, i) { return color(i); });
+		// legend.append('rect')
+		//     .attr('width', legendRectSize)
+		//     .attr('height', legendRectSize)
+		//     .style('fill', function (d, i) { return color(i); })
+		//     .style('stroke', function (d, i) { return color(i); });
 
-		legend.append('text')
-		    .attr('class', 'legend')
-		    .attr('x', legendRectSize + legendSpacing)
-		    .attr('y', legendRectSize - legendSpacing)
-		    .text(function (d) { return d.label; });
+		// legend.append('text')
+		//     .attr('class', 'legend')
+		//     .attr('x', legendRectSize + legendSpacing)
+		//     .attr('y', legendRectSize - legendSpacing)
+		//     .text(function (d) { return d.label; });
 	}
 </script>

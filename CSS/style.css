@@ -232,3 +232,9 @@ svg {
 	font-size: 0.8em;
 	float: bottom;
 }
+
+@media (max-width: 720px) {
+  body * :not(svg text) {
+    font-size: 1.2em;
+  }
+}
